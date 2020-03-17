@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i = 0, i2 = 0, count = 0;
 	get_format specifier[] = {
-		{'c', print_char}, {'s', print_string}, {'%', print_char},
+		{'c', print_char}, {'s', print_string},
 		{'d', print_int}, {'i', print_int}, {'\0', NULL} };
 
 	va_start(ap, format);
@@ -22,6 +22,11 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] != '%')
 			_putchar(format[i]);
+		else if (format[i + 1] == '%')
+		{
+			_putchar('%');
+			i++;
+		}
 		else
 		{
 			for (i2 = 0; specifier[i2].spec_char != '\0'; i2++)
