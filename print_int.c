@@ -12,7 +12,7 @@ int print_int(va_list ap)
 {
 	int digits = 1, divider = 1;
 	int n = va_arg(ap, int);
-	int num = n,j = 0, j2 = 0, neg = 0;
+	int num = n, j = 0, j2 = 0, neg = 0;
 
 	if (n == 0)
 	{
