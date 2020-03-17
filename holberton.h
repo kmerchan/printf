@@ -1,6 +1,23 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
+#include <stdarg.h>
+
+/**
+ * struct get_format - matches format specifier with function pointer
+ * @spec_char: specifying character
+ *
+ * @func: function pointer that matches specifier
+ *
+ */
+
+typedef struct get_format
+{
+	char spec_char;
+	int (*func)(va_list ap);
+} get_format;
+
+
 /* declaration of _putchar function */
 int _putchar(char c);
 
@@ -10,22 +27,13 @@ int string_length(char *s);
 /* declaration of main printf function to print string and call formatting */
 int _printf(const char *format, ...);
 
-/* declaration of function to handle escape characters */
-int escape(char *final, int i, int e);
-
-/* declaration of function to determine formatting function needed (type int) */
-int (*get_format(char *s))(char *, int, int);
-
-/* declaration of function to determine formatting function needed (type str) */
-int (*get_format(char *s))(char *, int, int);
-
 /* declaration of function to format printing character */
-int print_char(char *final, int i, int c);
+int print_char(va_list ap);
 
 /* declaration of function to format printing string */
-int print_string(char *final, int i, char *s);
+int print_string(va_list ap);
 
 /* declaration of function to format printing integer */
-int print_int(char *final, int i, int n);
+int print_int(va_list ap);
 
 #endif
