@@ -1,35 +1,23 @@
 #include "holberton.h"
 
 /**
- * print_int - formats printing for integer
- * @final: array holding final string to be printed with all formatting
+ * print_int - prints integers
  *
- * @i: integer count of index for array, starting from central printf func
+ * @ap: argument pointer to next argument, interger to be printed
  *
- * @n: input integer to be printed
- *
- * Return: new index count of final array after setting integer
+ * Return: character count from this function
  */
 
-int print_int(char *final, int i, int n)
+int print_int(va_list ap)
 {
-	int digits = 1;
-	int num = n;
-	int j = 0;
+	int digits = 1, divider = 1;
+	int n = va_arg(ap, int);
+	int num = n,j = 0, j2 = 0, neg = 0;
 
-	/* if n is negative, put negative sign and change n to positive */
-	if (n < 0)
+	if (n == 0)
 	{
-		final[i] = '-';
-		i++;
-		n = 0 - n;
-		num = n;
-	}
-	else if (n == 0)
-	{
-		final[i] = '0';
-		i++;
-		return (i);
+		_putchar('0');
+		return (0);
 	}
 	/* counts number of digits by increasing count and dividing by 10 */
 	while ((num / 10) != 0)
@@ -37,14 +25,25 @@ int print_int(char *final, int i, int n)
 		digits++;
 		num /= 10;
 	}
-	/* sets index to be last digit of number */
-	i += (digits - 1);
-	/* loops through number from last digit to largest digit, set in final*/
-	for (j = (digits - 1); j >= 0; j--, i--)
+	/* loops through number from last digit to largest digit */
+	for (j = (digits - 1); j >= 0; j--)
 	{
-		final[i] = (n % 10) + '0';
-		n /= 10;
+		divider = 1;
+		for (j2 = 0; j2 < j; j2++)
+			divider = divider * 10;
+		if (n < 0)
+		{
+			_putchar('-');
+			_putchar((0 - (n / divider)) + '0');
+			n = n % divider;
+			n = 0 - n;
+			neg = 1;
+		}
+		else
+		{
+			_putchar((n / divider) + '0');
+			n = n % divider;
+		}
 	}
-	/* i should now equal initial i of func, change to be past last digit*/
-	return (i + digits + 1);
+	return (digits - 1 + neg);
 }
