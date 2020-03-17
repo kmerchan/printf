@@ -1,0 +1,32 @@
+." This is the man page for our _printf function
+.TH _printf 3 "March 17, 2020" "Version 1.0" "man: _printf"
+
+.SH NAME
+_printf - Formatting output to be printed
+
+.SH SYNOPSIS
+int
+_printf(const char *format, ...)
+
+.SH DESCRIPTION
+_printf is a variadic function that prints strings, formatting them based on type of argument. The parameter is a string with text to copy and format specifiers needed to print arguments. Each format specifier starts with a percent character ("%") followed by the format character.
+
+.SH FORMAT
+The format characters:
+.PP
+.IP %c
+An argument's first byte is printed
+.IP %s
+An argument that is a string is printed
+.IP %%
+No argument is being used, so print '%'
+.IP %d,%i
+An argument that is an integer is printed
+
+.SH AUTHOR
+Shontrell Scott - 1700@holbertonschool.com
+.PP
+Kelsie Merchant - 1708@holbertonschool.com
+
+.SH SEE ALSO
+printf(3)
