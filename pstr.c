@@ -1,21 +1,15 @@
 #include "holberton.h"
 /**
  * print_string - Printing string
- * @final: pointer to final array
- * @i: current index
- * @s: string to print
+ * @ap: argument point
  * Return: string
  */
-int print_string(char *final, int i, int *s)
+int print_string(va_list ap)
 {
-	int count;
+	char *x = va_arg(ap, char*);
+	int y, len = string_length(x);
 
-	for (count = 0; s[count]; count++)
-	{
-		for (i = 0; i < s; i++)
-		{
-			_putchar(final[i]);
-		}
-	}
-	return (s);
+	for (y = 0; y < len ; y++)
+		_putchar(x[y]);
+	return (len - 1);
 }

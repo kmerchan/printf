@@ -1,16 +1,13 @@
 #include "holberton.h"
 /**
  * print_char - Printing character
- * @final: pointer to final array
- * @i: current index
- * @c:character to print
+ * @ap: argument pointer
  * Return: character
  */
-int print_char(char *final, int i, int c)
+int print_char(va_list ap)
 {
-	for (i = 0; i < c; i++)
-	{
-		_putchar(final[i]);
-	}
-	return (c);
+	int x = va_arg(ap, int);
+
+	_putchar(x);
+	return (0);
 }
