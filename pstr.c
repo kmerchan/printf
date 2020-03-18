@@ -7,7 +7,7 @@
  */
 int print_string(va_list ap)
 {
-	char *x = va_arg(ap, char*) *nil_string = "(null)";
+	char *x = va_arg(ap, char*), *nil_string = "(null)";
 	int y, len = string_length(x);
 
 	if (x == NULL)
