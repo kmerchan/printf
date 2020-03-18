@@ -20,21 +20,16 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		_putchar('-');
-		_putchar(1);
+		format_null();
 		return (-1);
 	}
-
 	va_start(ap, format);
 	for (i = 0; format[i]; i++, count++)
 	{
 		if (format[i] != '%')
 			_putchar(format[i]);
 		else if (format[i + 1] == '%')
-		{
-			_putchar('%');
-			i++;
-		}
+			i += print_perc();
 		else
 		{
 			for (i2 = 0; specifier[i2].spec_char != '\0'; i2++)
@@ -42,10 +37,9 @@ int _printf(const char *format, ...)
 				if (format[i + 1] == specifier[i2].spec_char)
 				{
 					null_check = specifier[i2].func(ap);
-					if (null_check != -1)
-						count += null_check;
-					else
+					if (null_check == -1)
 						null_seen = -1;
+					count += null_check;
 					i++;
 					break;
 				}
