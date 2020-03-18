@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		_putchar('-1');
+		_putchar('-');
+		_putchar(1);
 	return (-1);
 	}
 
