@@ -1,7 +1,7 @@
 #include "holberton.h"
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include <stdio.h>
 /**
  * _printf - function to print string, formatting based on type of argument
  * @format: format string with text to copy and format specifiers to call args
