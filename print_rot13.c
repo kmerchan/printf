@@ -21,7 +21,7 @@ int print_rot13(va_list ap)
 	{
 		for (j = 0; nil_string[j]; j++)
 			_putchar(nil_string[j]);
-		return (string_length(nil_string) - 1);
+		return (-1);
 	}
 	for (i = 0; s[i]; i++)
 	{
@@ -32,6 +32,8 @@ int print_rot13(va_list ap)
 				_putchar(rot[j]);
 				break;
 			}
+			else if (j == 51)
+				_putchar(s[i]);
 		}
 	}
 	return (i - 1);
