@@ -15,7 +15,12 @@ int print_rot13(va_list ap)
 	char rot[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	char *s = va_arg(ap, char *);
 
-
+	if (s == NULL)
+	{
+		for (y = 0; nil_string[y]; y++)
+			_putchar(nil_string[y]);
+		return (-1);
+	}
 	for (i = 0; s[i]; i++)
 	{
 		for (j = 0; j < 52; j++)
