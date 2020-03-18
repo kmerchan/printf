@@ -14,7 +14,7 @@ int print_string(va_list ap)
 	{
 		for (y = 0; nil_string[y]; y++)
 			_putchar(nil_string[y]);
-		return (len2 - 1);
+		return (-1);
 	}
 	for (y = 0; y < len ; y++)
 		_putchar(x[y]);
