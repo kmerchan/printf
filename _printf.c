@@ -12,7 +12,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, i2 = 0, count = 0, null_check = 0, null_seen = 0;
+	int i = 0, i2 = 0, count = 0;
 	get_format specifier[] = {
 		{'c', print_char}, {'s', print_string}, {'r', print_reverse},
 		{'d', print_int}, {'i', print_int}, {'R', print_rot13},
@@ -36,10 +36,7 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == specifier[i2].spec_char)
 				{
-					null_check = specifier[i2].func(ap);
-					if (null_check == -1)
-						null_seen = -1;
-					count += null_check;
+					count += specifier[i2].func(ap);
 					i++;
 					break;
 				}
@@ -47,7 +44,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
-	if (null_seen == -1)
-		return (-1);
 	return (count);
 }
