@@ -22,6 +22,10 @@ An argument that is a string is printed
 No argument is being used, so print '%'
 .IP %d,%i
 An argument that is an integer is printed
+.IP %r
+An argument that is a string is printed in reverse
+.IP %R
+An argurment that is a rot13'ed string is printed
 
 .SH AUTHOR
 Shontrell Scott - 1700@holbertonschool.com
