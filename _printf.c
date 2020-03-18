@@ -14,14 +14,15 @@ int _printf(const char *format, ...)
 	va_list ap;
 	int i = 0, i2 = 0, count = 0;
 	get_format specifier[] = {
-		{'c', print_char}, {'s', print_string},
-		{'d', print_int}, {'i', print_int}, {'\0', NULL} };
+		{'c', print_char}, {'s', print_string}, {'r', print_reverse},
+		{'d', print_int}, {'i', print_int}, {'R', print_rot13},
+		{'\0', NULL} };
 
 	if (format == NULL)
 	{
 		_putchar('-');
 		_putchar(1);
-	return (-1);
+		return (-1);
 	}
 
 	va_start(ap, format);

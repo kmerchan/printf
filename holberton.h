@@ -36,4 +36,10 @@ int print_string(va_list ap);
 /* declaration of function to format printing integer */
 int print_int(va_list ap);
 
+/* declaration of function to format printing string in rot13 */
+int print_rot13(va_list ap);
+
+/* declaration of function to format printing string in reverse */
+int print_reverse(va_list ap);
+
 #endif
