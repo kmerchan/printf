@@ -12,7 +12,7 @@
 int _printf(const char *format, ...)
 {
 	va_list ap;
-	int i = 0, i2 = 0, count = 0;
+	int i = 0, i2 = 0, count = 0, null_check = 0, null_seen = 0;
 	get_format specifier[] = {
 		{'c', print_char}, {'s', print_string}, {'r', print_reverse},
 		{'d', print_int}, {'i', print_int}, {'R', print_rot13},
@@ -20,28 +20,26 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 	{
-		_putchar('-');
-		_putchar(1);
+		format_null();
 		return (-1);
 	}
-
 	va_start(ap, format);
 	for (i = 0; format[i]; i++, count++)
 	{
 		if (format[i] != '%')
 			_putchar(format[i]);
 		else if (format[i + 1] == '%')
-		{
-			_putchar('%');
-			i++;
-		}
+			i += print_perc();
 		else
 		{
 			for (i2 = 0; specifier[i2].spec_char != '\0'; i2++)
 			{
 				if (format[i + 1] == specifier[i2].spec_char)
 				{
-					count += specifier[i2].func(ap);
+					null_check = specifier[i2].func(ap);
+					if (null_check == -1)
+						null_seen = -1;
+					count += null_check;
 					i++;
 					break;
 				}
@@ -49,5 +47,7 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(ap);
+	if (null_seen == -1)
+		return (-1);
 	return (count);
 }

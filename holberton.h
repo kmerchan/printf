@@ -42,4 +42,10 @@ int print_rot13(va_list ap);
 /* declaration of function to format printing string in reverse */
 int print_reverse(va_list ap);
 
+/* declaration of function to format printing percent character */
+int print_perc(void);
+
+/* declaration of function to print -1 if format is NULL */
+void format_null(void);
+
 #endif
