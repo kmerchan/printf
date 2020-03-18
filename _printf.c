@@ -17,6 +17,9 @@ int _printf(const char *format, ...)
 		{'c', print_char}, {'s', print_string},
 		{'d', print_int}, {'i', print_int}, {'\0', NULL} };
 
+	if (format == NULL)
+		_putchar('-');
+	return (1);
 	va_start(ap, format);
 	for (i = 0; format[i]; i++, count++)
 	{
