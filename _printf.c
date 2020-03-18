@@ -18,8 +18,11 @@ int _printf(const char *format, ...)
 		{'d', print_int}, {'i', print_int}, {'\0', NULL} };
 
 	if (format == NULL)
-		_putchar('-');
-	return (1);
+	{
+		_putchar('-1');
+	return (-1);
+	}
+
 	va_start(ap, format);
 	for (i = 0; format[i]; i++, count++)
 	{
