@@ -24,6 +24,12 @@ int _putchar(char c);
 /* declaration of function to determine string length */
 int string_length(char *s);
 
+/*declaration of function to determine string comparison */
+int string_compare(const char *s1, char s2*);
+
+/*declaration of function to format printing binary number */
+int print_binary(va_list ap);
+
 /* declaration of main printf function to print string and call formatting */
 int _printf(const char *format, ...);
 
