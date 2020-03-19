@@ -25,7 +25,7 @@ int _putchar(char c);
 int string_length(char *s);
 
 /*declaration of function to determine string comparison */
-int string_compare(const char *s1, char s2*);
+int string_compare(const char *s1, char *s2);
 
 /*declaration of function to format printing binary number */
 int print_binary(va_list ap);
