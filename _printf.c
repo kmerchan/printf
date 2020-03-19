@@ -16,20 +16,15 @@ int _printf(const char *format, ...)
 	get_format specifier[] = {
 		{'c', print_char}, {'s', print_string}, {'r', print_reverse},
 		{'d', print_int}, {'i', print_int}, {'R', print_rot13},
-		{'\0', NULL} };
+		{'b', print_binary}, {'\0', NULL} };
 
-	if (format == NULL)
-	{
-		format_null();
+	if (format == NULL || string_compare(format, "%") == 0)
 		return (-1);
-	}
 	va_start(ap, format);
 	for (i = 0; format[i]; i++, count++)
 	{
 		if (format[i] != '%')
 			_putchar(format[i]);
-		else if (format[i + 1] == '%')
-			i += print_perc();
 		else
 		{
 			for (i2 = 0; specifier[i2].spec_char != '\0'; i2++)
@@ -40,6 +35,13 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				}
+				if (specifier[i2 + 1].spec_char == '\0')
+				{
+					print_perc();
+					if (format[i + 1] == '%')
+						i++;
+				}
+
 			}
 		}
 	}
