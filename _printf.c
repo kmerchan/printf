@@ -16,7 +16,9 @@ int _printf(const char *format, ...)
 	get_format specifier[] = {
 		{'c', print_char}, {'s', print_string}, {'r', print_reverse},
 		{'d', print_int}, {'i', print_int}, {'R', print_rot13},
-		{'b', print_binary}, {'\0', NULL} };
+		{'x', print_hexidecimal}, {'X', print_hexidecimalA},
+		{'b', print_binary}, {'u', print_unsigned}, {'o', print_octal},
+		{'S', print_S}, {'\0', NULL} };
 
 	if (format == NULL || string_compare(format, "%") == 0)
 		return (-1);
