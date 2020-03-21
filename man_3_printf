@@ -25,7 +25,19 @@ An argument that is an integer is printed
 .IP %r
 An argument that is a string is printed in reverse
 .IP %R
-An argurment that is a rot13'ed string is printed
+An argurment that is a string is printed in rot13
+.IP %b
+An argurment that is an integer is printed in binary
+.IP %o
+An argurment that is an integer is printed as octal
+.IP %x
+An argurment that is an integer is printed as hexidecimal with lowercase alpha
+.IP %X
+An argurment that is an integer is printed as hexidecimal with uppercase alpha
+.IP %u
+An argurment that is an unsigned int is printed
+.IP %S
+An argurment that is a string is printed with non-printable character as hexidecimal value
 
 .SH AUTHOR
 Shontrell Scott - 1700@holbertonschool.com
