@@ -21,7 +21,7 @@ int print_rot13(va_list ap)
 	{
 		for (j = 0; nil_string[j]; j++)
 			_putchar(nil_string[j]);
-		return (-1);
+		return (string_length(nil_string));
 	}
 	for (i = 0; s[i]; i++)
 	{
